@@ -361,7 +361,7 @@ function initCurriculum() {
   renderPersonalInfo();
   renderExperience();
   renderEducation();
-  renderProjects();
+  //   renderProjects();
   renderTechnicalSkills();
   renderSoftSkills();
   renderLanguages();
