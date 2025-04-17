@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currículo - Lizandra Santos</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script src="../../js/curriculum.js" defer></script>
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <a class="logo" href="../../index.html">Lizandra Santos</a>
+          </div>
+          <div class="nav-links" id="navLinks">
+            <a href="../../index.html">Início</a>
+            <a href="../certificados/">Certificados</a>
+            <a href="../curriculo/">Currículo</a>
+          </div>
+          <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Conteúdo da Página de Currículo -->
+    <main>
+      <section class="curriculum">
+        <div class="container">
+          <!-- Cabeçalho do currículo -->
+          <div class="curriculum-heading">
+            <h2 id="personalName">Lizandra Santos</h2>
+            <p class="subtitle" id="personalTitle">
+              Desenvolvedora de Software | Automação de processos
+            </p>
+          </div>
+
+          <!-- Informações de contato -->
+          <div class="curriculum-section contact-section">
+            <div class="contact-grid">
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span id="personalEmail">lizandraplacido@gmail.com</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span id="personalPhone">(11) 91595-9763</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="personalLocation">Guanambi, Bahia, Brasil</span>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <span>Disponível para trabalho remoto ou mudança</span>
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <a
+                  href="https://github.com/LizaGomes97"
+                  target="_blank"
+                  id="githubLink"
+                  >GitHub</a
+                >
+              </div>
+              <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a
+                  href="https://www.linkedin.com/in/lizandra-ribeiro-p-santos"
+                  target="_blank"
+                  id="linkedinLink"
+                  >LinkedIn</a
+                >
+              </div>
+            </div>
+
+            <div class="download-cv">
+              <a href="#" class="btn">
+                <i class="fas fa-download"></i> Baixar Currículo PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- Sobre mim -->
+          <div class="curriculum-section">
+            <h2>Sobre Mim</h2>
+            <p id="personalAbout" class="about-text"></p>
+          </div>
+
+          <!-- Experiência Profissional -->
+          <div class="curriculum-section">
+            <h2>Experiência Profissional</h2>
+            <div id="experienceSection">
+              <!-- Itens de experiência serão adicionados via JavaScript -->
+            </div>
+          </div>
+
+          <!-- Educação -->
+          <div class="curriculum-section">
+            <h2>Formação Acadêmica</h2>
+            <div id="educationSection">
+              <!-- Itens de educação serão adicionados via JavaScript -->
+            </div>
+          </div>
+
+          <!-- Habilidades Técnicas -->
+          <div class="curriculum-section">
+            <h2>Habilidades Técnicas</h2>
+            <div class="skills-grid" id="technicalSkillsGrid">
+              <!-- Habilidades técnicas serão adicionadas via JavaScript -->
+            </div>
+          </div>
+
+          <!-- Soft Skills -->
+          <div class="curriculum-section">
+            <h2>Soft Skills</h2>
+            <div class="skills-grid" id="softSkillsGrid">
+              <!-- Soft skills serão adicionadas via JavaScript -->
+            </div>
+          </div>
+
+          <!-- Idiomas -->
+          <div class="curriculum-section">
+            <h2>Idiomas</h2>
+            <div class="skills-grid" id="languagesGrid">
+              <!-- Idiomas serão adicionados via JavaScript -->
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div>
+            <p>&copy; 2025 Lizandra Santos - Todos os direitos reservados</p>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/LizaGomes97"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://www.linkedin.com/in/lizandra-ribeiro-p-santos/"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="mailto:lizandraplacido@gmail.com" id="contact"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript para o menu mobile -->
+    <script>
+      // Lidar com o menu mobile
+      document
+        .getElementById("hamburger")
+        .addEventListener("click", function () {
+          document.getElementById("navLinks").classList.toggle("active");
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificados - Lizandra Santos</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../css/styles.css" />
+    <script src="../../js/certificates.js" defer></script>
+  </head>
+  <body>
+    <!-- Cabeçalho -->
+    <header>
+      <div class="container">
+        <nav>
+          <div class="logo">
+            <a class="logo" href="../../index.html">Lizandra Santos</a>
+          </div>
+          <div class="nav-links" id="navLinks">
+            <a href="../../index.html">Início</a>
+            <a href="../certificados/">Certificados</a>
+            <a href="../curriculo/">Currículo</a>
+          </div>
+          <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Conteúdo da Página de Certificados -->
+    <main>
+      <section class="certificates">
+        <div class="container">
+          <div class="certificates-heading">
+            <h2>Meus Certificados</h2>
+            <p class="subtitle">Qualificações e conquistas profissionais</p>
+          </div>
+
+          <!-- O grid de certificados será preenchido pelo JavaScript -->
+          <div class="certificates-grid" id="certificatesGrid"></div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div>
+            <p>&copy; 2025 Lizandra Santos - Todos os direitos reservados</p>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/LizaGomes97"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="https://www.linkedin.com/in/lizandra-ribeiro-p-santos/"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="mailto:lizandraplacido@gmail.com" id="contact"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript para o menu mobile -->
+    <script>
+      // Lidar com o menu mobile
+      document
+        .getElementById("hamburger")
+        .addEventListener("click", function () {
+          document.getElementById("navLinks").classList.toggle("active");
+        });
+    </script>
+  </body>
+</html>
