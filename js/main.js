@@ -15,6 +15,19 @@ const projects = [
       "https://gerador-de-orcamentos-git-main-lizagomes97s-projects.vercel.app/",
   },
   {
+    id: "chat-bot-api",
+    title: "ChatBot - Whatsapp",
+    description:
+      "ChatBot para whatsapp que recepciona o cliente, identifica a necessidade inicial, faz a requisição dos dados necessarios e prepara o chat para o atendente",
+    shortDescription:
+      "Aplicação desenvolvida para realizar a triagem inicial do atendimento na farmacia",
+    image: "assets/images/chatbot-whatsapp.png",
+    tags: ["puppeteer", "Node.js", "qrcode-terminal", "WWebJS"],
+    repoUrl: "https://github.com/LizaGomes97/BotAPI/tree/main",
+    demoUrl: "#",
+    iframeUrl: "assets/images/chatbot-whatsapp.png",
+  },
+  {
     id: "compre-seu-ingresso",
     title: "Alura - Compre seu ingresso",
     description: "Aplicação desenvolvida para estudos de logica de programação",
