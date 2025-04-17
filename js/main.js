@@ -1,52 +1,81 @@
 // Dados dos projetos
 const projects = [
   {
-    id: "project1",
-    title: "E-commerce com React",
+    id: "processador-de-orcamentos",
+    title: "Processador de orçamentos",
     description:
-      "Um site completo de e-commerce desenvolvido com React, incluindo carrinho de compras funcional, sistema de filtros e integração com API de pagamentos.",
-    shortDescription: "E-commerce completo com React e API de pagamentos",
-    image: "assets/images/project1.jpg",
-    tags: ["React", "JavaScript", "API REST", "CSS"],
-    repoUrl: "https://github.com/seu-usuario/ecommerce-react",
-    demoUrl: "https://seu-ecommerce.netlify.app",
-    iframeUrl: "https://seu-ecommerce.netlify.app",
+      "Aplicação desenvolvida para converter dados brutos do carrinho de compras do cliente em um orçamento pronto para a impressão",
+    shortDescription: "Conversor de dados brutos em orçamento estruturado",
+    image: "assets/images/project1.png",
+    tags: ["HTML", "JavaScript", "Python", "CSS"],
+    repoUrl: "https://github.com/LizaGomes97/Gerador_de_orcamentos",
+    demoUrl:
+      "https://gerador-de-orcamentos-git-main-lizagomes97s-projects.vercel.app/",
+    iframeUrl:
+      "https://gerador-de-orcamentos-git-main-lizagomes97s-projects.vercel.app/",
   },
   {
-    id: "project2",
-    title: "Todo App com Vue.js",
-    description:
-      "Aplicativo de gerenciamento de tarefas desenvolvido com Vue.js e Vuex para gerenciamento de estado. Inclui funcionalidades de adicionar, editar, excluir tarefas e marcar como concluídas.",
-    shortDescription: "Aplicativo de gerenciamento de tarefas com Vue.js",
-    image: "assets/images/project2.jpg",
-    tags: ["Vue.js", "Vuex", "JavaScript", "CSS"],
-    repoUrl: "https://github.com/seu-usuario/todo-vue",
-    demoUrl: "https://seu-todo.netlify.app",
-    iframeUrl: "https://seu-todo.netlify.app",
+    id: "compre-seu-ingresso",
+    title: "Alura - Compre seu ingresso",
+    description: "Aplicação desenvolvida para estudos de logica de programação",
+    shortDescription: "Compre seus ingressos enquanto estão disponiveis",
+    image: "assets/images/compre-ingressos.png",
+    tags: ["JavaScript"],
+    repoUrl:
+      "https://github.com/LizaGomes97/Praticando_Logica/tree/main/ingresso",
+    demoUrl: "https://compra-de-ingressos-beta.vercel.app/",
+    iframeUrl: "https://compra-de-ingressos-beta.vercel.app/",
   },
   {
-    id: "project3",
-    title: "Blog em Next.js",
+    id: "alugames",
+    title: "Alura - Alugames",
     description:
-      "Blog pessoal desenvolvido com Next.js e Markdown para conteúdo. Inclui sistema de categorias, pesquisa e comentários.",
-    shortDescription: "Blog pessoal com Next.js e Markdown",
-    image: "assets/images/project3.jpg",
+      "Aplicação desenvolvida para fins de estudos de logica de programação",
+    shortDescription: "Alugue ou devolva filmes conforme disponibilidade",
+    image: "assets/images/alugames.png",
     tags: ["Next.js", "React", "Markdown", "CSS Modules"],
-    repoUrl: "https://github.com/seu-usuario/blog-nextjs",
-    demoUrl: "https://seu-blog.vercel.app",
-    iframeUrl: "https://seu-blog.vercel.app",
+    repoUrl:
+      "https://github.com/LizaGomes97/Praticando_Logica/tree/main/alugames",
+    demoUrl: "https://aluguel-de-jogos-coral.vercel.app/",
+    iframeUrl: "https://aluguel-de-jogos-coral.vercel.app/",
   },
   {
-    id: "project4",
-    title: "Dashboard Administrativo",
-    description:
-      "Dashboard administrativo com gráficos interativos, tabelas de dados e controle de usuários. Desenvolvido com React e Material UI.",
-    shortDescription: "Dashboard administrativo com React e Material UI",
-    image: "assets/images/project4.jpg",
-    tags: ["React", "Material UI", "Chart.js", "Context API"],
-    repoUrl: "https://github.com/seu-usuario/admin-dashboard",
-    demoUrl: "https://seu-dashboard.netlify.app",
-    iframeUrl: "https://seu-dashboard.netlify.app",
+    id: "amigo-secreto",
+    title: "Alura - Amigo Secreto",
+    description: "Jogo de sorteio do amigo secreto",
+    shortDescription:
+      "Digite o nome de alguns amigos e sorteie quem vai presentear quem",
+    image: "assets/images/amigo-secreto.png",
+    tags: ["JavaScript"],
+    repoUrl:
+      "https://github.com/LizaGomes97/Praticando_Logica/tree/main/amigo-secreto",
+    demoUrl: "https://amigo-secreto-six-mu.vercel.app/",
+    iframeUrl: "https://amigo-secreto-six-mu.vercel.app/",
+  },
+  {
+    id: "carrinho-de-compras",
+    title: "Alura - Amigo Secreto",
+    description: "Jogo de sorteio do amigo secreto",
+    shortDescription:
+      "Digite o nome de alguns amigos e sorteie quem vai presentear quem",
+    image: "assets/images/carrinho-de-compras.png",
+    tags: ["JavaScript"],
+    repoUrl:
+      "https://github.com/LizaGomes97/Praticando_Logica/tree/main/carrinho-compras",
+    demoUrl: "https://carrinhodecompras-eight.vercel.app/",
+    iframeUrl: "https://carrinhodecompras-eight.vercel.app/",
+  },
+  {
+    id: "adivinha-numeros-com-narrador",
+    title: "Alura - Adivinhe o numero secreto (com narrador)",
+    description: "Adivinhe o numero secreto",
+    shortDescription: "Adivinhe o numero secreto",
+    image: "assets/images/adivinhe-o-numero-secreto.png",
+    tags: ["JavaScript"],
+    repoUrl:
+      "https://github.com/LizaGomes97/Praticando_Logica/tree/main/sorteador-numeros",
+    demoUrl: "https://jogo-ashen-psi.vercel.app/",
+    iframeUrl: "https://jogo-ashen-psi.vercel.app/",
   },
 ];
 
