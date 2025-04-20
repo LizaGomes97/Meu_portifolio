@@ -301,6 +301,19 @@ const certificates = [
     credentialUrl: "#",
     // credentialId: "HWB3AE0G",
   },
+  {
+    id: "cert26",
+    title: "Python: crie a sua primeira aplicação",
+    issuer: "ALura",
+    date: "Outubro 2024",
+    description:
+      "Nesse curso, mergulhei nos fundamentos da linguagem e criei um projeto do zero, explorando conceitos como condicionais, laços de repetição, tratamento de exceções com try-except, e a organização de dados usando listas e dicionários. Também desenvolvi funções para exibir menus e registrar restaurantes — um verdadeiro exercício de lógica e estrutura!",
+    logo: "https://media.licdn.com/dms/image/v2/D4D0BAQEZkMsv5FwbDA/company-logo_200_200/company-logo_200_200/0/1710187635900/aluracursos_logo?e=1750291200&v=beta&t=M1lWXsi8_ut6Ye9wRC5iWHp6ORZ8U4cH5AaDCh5ZRnQ",
+    tags: ["API", "Python", "JavaScript"],
+    credentialUrl:
+      "https://cursos.alura.com.br/certificate/883c426e-8da3-4c4f-83e9-1e0dbffd2e91?lang",
+    // credentialId: "UIY65XRZ",
+  },
 ];
 
 // Função para renderizar a página de certificados

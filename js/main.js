@@ -28,6 +28,19 @@ const projects = [
     iframeUrl: "assets/images/chatbot-whatsapp.png",
   },
   {
+    id: "banco-de-restaurantes",
+    title: "Banco de Restaurantes",
+    description:
+      "Registro de restaurantes com a intençao de administrar status, categoria e nome para uso em outro aplicativo estilo Ifood",
+    shortDescription:
+      "Banco de dados para administrar restaurantes registrados",
+    image: "assets/images/banco-restaurantes.png",
+    tags: ["HTML", "JavaScript", "Python", "CSS"],
+    repoUrl: "https://github.com/LizaGomes97/banco-de-restaurantes",
+    demoUrl: "https://banco-de-restaurantes.vercel.app/",
+    iframeUrl: "https://banco-de-restaurantes.vercel.app/",
+  },
+  {
     id: "compre-seu-ingresso",
     title: "Alura - Compre seu ingresso",
     description: "Aplicação desenvolvida para estudos de logica de programação",
