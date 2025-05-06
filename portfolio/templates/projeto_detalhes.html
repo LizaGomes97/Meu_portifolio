@@ -25,8 +25,8 @@
                 </div>
             </div>
             <div>
-                {% if projeto.iframe_url %}
-                <iframe class="project-iframe" src="{{ projeto.iframe_url }}" title="Demo do {{ projeto.titulo }}"></iframe>
+                {% if projeto.demo_url %}
+                <iframe class="project-iframe" src="{{ projeto.demo_url }}" title="Demo do {{ projeto.titulo }}"></iframe>
                 {% else %}
                 <img src="{{ projeto.imagem.url }}" alt="{{ projeto.titulo }}" class="project-img" style="width: 100%; height: auto;">
                 {% endif %}

@@ -12,8 +12,8 @@ class Projeto(models.Model):
     descricao_curta = models.CharField(max_length=255)
     imagem = models.ImageField(upload_to='projetos/')
     repo_url = models.URLField(verbose_name="URL do Repositório")
-    demo_url = models.URLField(verbose_name="URL da Demonstração", blank=True, null=True)
-    iframe_url = models.URLField(verbose_name="URL do iframe", blank=True, null=True)
+    demo_url = models.URLField(verbose_name="URL da Demonstração/iframe", blank=True, null=True, 
+                              help_text="URL para demonstração do projeto. Esta URL também será usada no iframe de visualização.")
     data_criacao = models.DateField(auto_now_add=True)
     
     class Meta:
