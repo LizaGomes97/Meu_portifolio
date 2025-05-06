@@ -12,21 +12,30 @@
         <div class="projects-grid">
             {% for projeto in projetos %}
             <div class="project-card">
-                <img src="{{ projeto.imagem.url }}" alt="{{ projeto.titulo }}" class="project-img">
-                <div class="project-info">
-                    <h3>{{ projeto.titulo }}</h3>
-                    <p>{{ projeto.descricao_curta }}</p>
-                    <div class="project-tags">
-                        {% for tag in projeto.tags.all|slice:":3" %}
-                        <span class="tag">{{ tag.nome }}</span>
-                        {% endfor %}
+                {% if projeto.imagem %}
+                    <img src="{{ projeto.imagem.url }}" alt="{{ projeto.titulo }}" class="project-img">
+                    <div class="project-info">
+                        <h3>{{ projeto.titulo }}</h3>
+                        <p>{{ projeto.descricao_curta }}</p>
+                        <div class="project-tags">
+                            {% for tag in projeto.tags.all|slice:":3" %}
+                            <span class="tag">{{ tag.nome }}</span>
+                            {% endfor %}
+                        </div>
+                        <a href="{% url 'projeto_detalhe' projeto.slug %}" class="btn">Ver Detalhes</a>
                     </div>
-                    <a href="{% url 'projeto_detalhe' projeto.slug %}" class="btn">Ver Detalhes</a>
-                </div>
-            </div>
-            {% empty %}
-            <div class="no-projects">
-                <p>Nenhum projeto cadastrado ainda.</p>
+                {% else %}
+                    <div class="project-info" style="width: 100%;">
+                        <h3>{{ projeto.titulo }}</h3>
+                        <p>{{ projeto.descricao_curta }}</p>
+                        <div class="project-tags">
+                            {% for tag in projeto.tags.all|slice:":3" %}
+                            <span class="tag">{{ tag.nome }}</span>
+                            {% endfor %}
+                        </div>
+                        <a href="{% url 'projeto_detalhe' projeto.slug %}" class="btn">Ver Detalhes</a>
+                    </div>
+                {% endif %}
             </div>
             {% endfor %}
         </div>
