@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Portfólio - Lizandra Santos{% endblock %}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a class="logo" href="{% url 'index' %}">Lizandra Santos</a>
+                </div>
+                <div class="nav-links" id="navLinks">
+                    <a href="{% url 'index' %}">Início</a>
+                    <a href="{% url 'certificados' %}">Certificados</a>
+                    <a href="{% url 'curriculo' %}">Currículo</a>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo da Página -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <p>&copy; {% now "Y" %} Lizandra Santos - Todos os direitos reservados</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/LizaGomes97"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/lizandra-ribeiro-p-santos/"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:lizandraplacido@gmail.com" id="contact"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Lidar com o menu mobile
+        document.getElementById("hamburger").addEventListener("click", function() {
+            document.getElementById("navLinks").classList.toggle("active");
+        });
+    </script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

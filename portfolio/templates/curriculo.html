@@ -1,0 +1,153 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Currículo - Lizandra Santos{% endblock %}
+
+{% block content %}
+<section class="curriculum">
+    <div class="container">
+        <!-- Cabeçalho do currículo -->
+        <div class="curriculum-heading">
+            <h2>{{ info_pessoal.nome }}</h2>
+            <p class="subtitle">{{ info_pessoal.titulo }}</p>
+        </div>
+
+        <!-- Informações de contato -->
+        <div class="curriculum-section contact-section">
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>{{ info_pessoal.email }}</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>{{ info_pessoal.telefone }}</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>{{ info_pessoal.localizacao }}</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-globe"></i>
+                    <span>{{ info_pessoal.disponibilidade }}</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="{{ info_pessoal.github }}" target="_blank">GitHub</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="{{ info_pessoal.linkedin }}" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sobre mim -->
+        <div class="curriculum-section">
+            <h2>Sobre Mim</h2>
+            <p class="about-text">{{ info_pessoal.sobre }}</p>
+            
+            {% if info_pessoal.interesses.all %}
+            <div class="project-tags" style="margin-top: 20px;">
+                {% for interesse in info_pessoal.interesses.all %}
+                <span class="tag">{{ interesse.nome }}</span>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Experiência Profissional -->
+        <div class="curriculum-section">
+            <h2>Experiência Profissional</h2>
+            {% for experiencia in experiencias %}
+            <div class="experience-item">
+                <h3>{{ experiencia.cargo }}</h3>
+                <div class="experience-date">{{ experiencia.periodo }}</div>
+                <div class="experience-company">{{ experiencia.empresa }}</div>
+                {% if experiencia.localizacao %}
+                <div class="experience-location"><i class="fas fa-map-marker-alt"></i> {{ experiencia.localizacao }}</div>
+                {% endif %}
+                {% if experiencia.descricao %}
+                <p>{{ experiencia.descricao }}</p>
+                {% endif %}
+                
+                {% if experiencia.responsabilidades.all %}
+                <ul class="custom-list">
+                    {% for resp in experiencia.responsabilidades.all %}
+                    <li>{{ resp.descricao }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+                
+                {% if experiencia.tecnologias.all %}
+                <div class="experience-technologies">
+                    {% for tech in experiencia.tecnologias.all %}
+                    <span class="tag">{{ tech.nome }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            {% empty %}
+            <p>Nenhuma experiência cadastrada.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Educação -->
+        <div class="curriculum-section">
+            <h2>Formação Acadêmica</h2>
+            {% for edu in educacao %}
+            <div class="education-item">
+                <h3>{{ edu.grau }}</h3>
+                <div class="education-date">{{ edu.periodo }}</div>
+                <div class="education-institution">{{ edu.instituicao }}</div>
+                <p>{{ edu.descricao }}</p>
+            </div>
+            {% empty %}
+            <p>Nenhuma formação acadêmica cadastrada.</p>
+            {% endfor %}
+        </div>
+
+        <!-- Habilidades Técnicas -->
+        <div class="curriculum-section">
+            <h2>Habilidades Técnicas</h2>
+            <div class="skills-grid" id="technicalSkillsGrid">
+                {% for skill in habilidades_tecnicas %}
+                <div class="skill-item" data-level="{{ skill.nivel|lower }}">
+                    {{ skill.nome }}
+                    <span class="skill-level">{{ skill.nivel }}</span>
+                </div>
+                {% empty %}
+                <p>Nenhuma habilidade técnica cadastrada.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Soft Skills -->
+        <div class="curriculum-section">
+            <h2>Soft Skills</h2>
+            <div class="skills-grid" id="softSkillsGrid">
+                {% for skill in soft_skills %}
+                <div class="skill-item">{{ skill.nome }}</div>
+                {% empty %}
+                <p>Nenhuma soft skill cadastrada.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Idiomas -->
+        <div class="curriculum-section">
+            <h2>Idiomas</h2>
+            <div class="skills-grid" id="languagesGrid">
+                {% for idioma in idiomas %}
+                <div class="skill-item">
+                    {{ idioma.nome }}
+                    <span class="language-level">{{ idioma.proficiencia }}</span>
+                </div>
+                {% empty %}
+                <p>Nenhum idioma cadastrado.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

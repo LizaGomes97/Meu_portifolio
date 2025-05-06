@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Certificados - Lizandra Santos{% endblock %}
+
+{% block content %}
+<section class="certificates">
+    <div class="container">
+        <div class="certificates-heading">
+            <h2>Meus Certificados</h2>
+            <p class="subtitle">Qualificações e conquistas profissionais</p>
+        </div>
+
+        <div class="certificates-grid">
+            {% for certificado in certificados %}
+            <div class="certificate-card">
+                <div class="certificate-content">
+                    <div class="certificate-logo">
+                        <img src="{{ certificado.logo }}" alt="Logo de {{ certificado.emissor }}">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>{{ certificado.titulo }}</h3>
+                        <div class="certificate-issuer">{{ certificado.emissor }}</div>
+                        <div class="certificate-date">{{ certificado.data }}</div>
+                        <p>{{ certificado.descricao }}</p>
+                        <div class="certificate-tags">
+                            {% for tag in certificado.tags.all %}
+                            <span class="tag">{{ tag.nome }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="certificate-footer">
+                    {% if certificado.url_credencial %}
+                    <a href="{{ certificado.url_credencial }}" class="btn-small" target="_blank">Ver Credencial</a>
+                    {% endif %}
+                    {% if certificado.id_credencial %}
+                    <div class="certificate-id">ID: {{ certificado.id_credencial }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            {% empty %}
+            <div class="no-certificates">
+                <p>Nenhum certificado cadastrado ainda.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

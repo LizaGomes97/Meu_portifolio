@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ projeto.titulo }} - Lizandra Santos{% endblock %}
+
+{% block content %}
+<section class="project-details">
+    <div class="container">
+        <div class="project-header">
+            <h1>{{ projeto.titulo }}</h1>
+        </div>
+        <div class="project-content">
+            <div class="project-description">
+                <p>{{ projeto.descricao }}</p>
+                <div class="project-tags">
+                    {% for tag in projeto.tags.all %}
+                    <span class="tag">{{ tag.nome }}</span>
+                    {% endfor %}
+                </div>
+                <div class="project-links">
+                    <a href="{{ projeto.repo_url }}" class="btn" target="_blank">Repositório</a>
+                    {% if projeto.demo_url %}
+                    <a href="{{ projeto.demo_url }}" class="btn" target="_blank">Ver Demo</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div>
+                {% if projeto.iframe_url %}
+                <iframe class="project-iframe" src="{{ projeto.iframe_url }}" title="Demo do {{ projeto.titulo }}"></iframe>
+                {% else %}
+                <img src="{{ projeto.imagem.url }}" alt="{{ projeto.titulo }}" class="project-img" style="width: 100%; height: auto;">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
