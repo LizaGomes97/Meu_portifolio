@@ -1,0 +1,133 @@
+{
+    "personalInfo": {
+      "name": "Lizandra Ribeiro Gomes Placido dos Santos",
+      "title": "Desenvolvedora de Software | Automação de processos",
+      "email": "lizandraplacido@gmail.com",
+      "phone": "(11) 91595-9763",
+      "location": "Guanambi, Bahia, Brasil",
+      "linkedin": "www.linkedin.com/in/lizandra-ribeiro-p-santos",
+      "github": "https://github.com/LizaGomes97",
+      "about": "Desenvolvedora de soluções que visam aumentar a eficiência dos processos e reduzir o tempo gasto com atividades repetitivas no dia-a-dia, permitindo dar foco no que é realmente necessário para o crescimento da empresa. Combinando minha experiência operacional com minhas habilidades em programação, ofereço soluções inovadoras e condizentes com o atual cenário tecnológico do mercado.",
+      "availability": "Disponível para trabalho remoto ou mudança",
+      "interests": [
+        "OpenToWork",
+        "DEV",
+        "IA",
+        "AWS",
+        "MachineLearnig",
+        "Python",
+        "JavaScript",
+        "Liderança",
+        "Back-End"
+      ]
+    },
+    "experience": [
+      {
+        "id": "exp1",
+        "position": "Desenvolvedor de software",
+        "company": "Autônomo",
+        "period": "Janeiro 2024 - Presente",
+        "description": "Desenvolvimento de soluções tecnológicas personalizadas para clientes diversos, com foco em automação e processamento de dados.",
+        "responsibilities": [
+          "Desenvolvimento de ChatBot para WhatsApp: Arquitetura e implementação de solução de atendimento automatizado com Node.js/Jest, reduzindo o tempo de resposta ao cliente e melhorando a satisfação do usuário",
+          "Gerador de Orçamentos: Transformação de processo manual de 5-10 minutos em solução automatizada com Python, reduzindo tempo de execução para menos de 1 minuto e aumentando a precisão dos orçamentos"
+        ],
+        "technologies": [
+          "Node.js",
+          "JavaScript",
+          "Python",
+          "React Native",
+          "APIs",
+          "Automação"
+        ]
+      },
+      {
+        "id": "exp2",
+        "position": "Supervisora Expansionista",
+        "company": "RD Saúde",
+        "period": "Dezembro 2023 - Presente",
+        "location": "Guanambi, Bahia, Brasil",
+        "description": "Liderança de equipes e implementação de melhorias em processos com uso de dados e tecnologia.",
+        "responsibilities": [
+          "Implementação de metodologias ágeis de treinamento, utilizando análise de dados para identificar padrões e áreas prioritárias de desenvolvimento",
+          "Utilização inteligente de dados do Power BI para tomada de decisões estratégicas",
+          "Automação de processos com Forms e Excel",
+          "Criação e execução de programa de mentoria estruturado para novos colaboradores",
+          "Implementação de soluções digitais que modernizaram processos",
+          "Utilização de Microsoft Copilot e ferramentas de IA para análise preditiva de métricas de desempenho"
+        ],
+        "technologies": [
+          "Metodologias ágeis (Scrum/Kanban)",
+          "Análise de dados",
+          "Power BI",
+          "Automação de processos",
+          "Microsoft 365",
+          "Liderança"
+        ]
+      },
+      {
+        "id": "exp3",
+        "position": "Balconista",
+        "company": "RD Saúde",
+        "period": "Novembro 2022 - Dezembro 2023",
+        "location": "Xangri-lá, Rio Grande do Sul, Brasil",
+        "description": ""
+      },
+      {
+        "id": "exp4",
+        "position": "Caixa",
+        "company": "RD Saúde",
+        "period": "Março 2022 - Outubro 2022",
+        "location": "Capão da Canoa, Rio Grande do Sul, Brasil",
+        "description": ""
+      },
+      {
+        "id": "exp5",
+        "position": "Caixa de atendimento ao cliente",
+        "company": "Pastello SSA",
+        "period": "Março 2018 - Setembro 2019",
+        "location": "Salvador, Bahia, Brasil",
+        "description": ""
+      }
+    ],
+    "education": [
+      {
+        "id": "edu1",
+        "degree": "Bacharelado em Ciência da Computação",
+        "institution": "Anhanguera Educacional",
+        "period": "Janeiro 2023 - Julho 2026 (Previsão)",
+        "description": "Formação em andamento com foco em algoritmos, estruturas de dados, banco de dados e programação orientada a objetos."
+      }
+    ],
+    "technicalSkills": [
+      { "name": "Python", "level": "Intermediário" },
+      { "name": "JavaScript", "level": "Intermediário" },
+      { "name": "HTML/CSS", "level": "Intermediário" },
+      { "name": "Node.js", "level": "Intermediário" },
+      { "name": "React/React Native", "level": "Intermediário" },
+      { "name": "Git/GitHub", "level": "Intermediário" },
+      { "name": "SQL (MySQL)", "level": "Intermediário" },
+      { "name": "Power BI", "level": "Intermediário" },
+      { "name": "Automação de Processos", "level": "Avançado" },
+      { "name": "AWS", "level": "Básico" },
+      { "name": "Machine Learning", "level": "Básico" },
+      { "name": "APIs RESTful", "level": "Básico" }
+    ],
+    "softSkills": [
+      "Liderança",
+      "Pensamento inovador",
+      "Trabalho em equipe",
+      "Comunicação eficaz",
+      "Resolução de problemas",
+      "Aprendizado contínuo",
+      "Adaptabilidade",
+      "Gerenciamento de tempo",
+      "Pensamento crítico",
+      "Atenção aos detalhes"
+    ],
+    "languages": [
+      { "language": "Português", "proficiency": "Nativo" },
+      { "language": "Inglês", "proficiency": "Intermediário" },
+      { "language": "Espanhol", "proficiency": "Intermediário" }
+    ]
+  }

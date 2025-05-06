@@ -38,32 +38,85 @@ def carregar_json_de_js(caminho_arquivo, nome_variavel):
             if inicio == -1:
                 inicio = conteudo.find(f"const {nome_variavel} = ")
                 if inicio == -1:
-                    raise ValueError(f"Variável {nome_variavel} não encontrada no arquivo")
-                inicio += len(f"const {nome_variavel} = ")
+                    inicio = conteudo.find(f"var {nome_variavel} = ")
+                    if inicio == -1:
+                        raise ValueError(f"Variável {nome_variavel} não encontrada no arquivo")
+                    inicio += len(f"var {nome_variavel} = ")
+                else:
+                    inicio += len(f"const {nome_variavel} = ")
             else:
                 inicio += len(f"{nome_variavel} = ")
             
-            # Encontrar o fim da declaração (pode ser terminada com ; ou não)
-            # Vamos procurar o último ]
-            fim = conteudo.rfind(";")
-            if fim == -1 or conteudo.rfind("]") > fim:
-                fim = len(conteudo)
-            else:
-                conteudo = conteudo[:fim]
-                fim = conteudo.rfind("]") + 1
-                
-            dados_json = conteudo[inicio:fim]
+            # Encontrar o fim da declaração
+            profundidade = 0
+            em_string = False
+            escape = False
+            fim = inicio
             
-            # Limpar comentários, se houver
-            linhas = dados_json.split('\n')
-            linhas_limpas = []
-            for linha in linhas:
-                if '//' in linha:
-                    linha = linha[:linha.index('//')]
-                linhas_limpas.append(linha)
-            dados_json = '\n'.join(linhas_limpas)
+            # Para arrays
+            if conteudo[inicio].strip() == '[':
+                for i in range(inicio, len(conteudo)):
+                    char = conteudo[i]
+                    
+                    if not em_string:
+                        if char == '[':
+                            profundidade += 1
+                        elif char == ']':
+                            profundidade -= 1
+                            if profundidade == 0:
+                                fim = i + 1
+                                break
+                    
+                    if char == '"' and not escape:
+                        em_string = not em_string
+                    
+                    escape = char == '\\' and not escape
             
-            return json.loads(dados_json)
+            # Para objetos
+            elif conteudo[inicio].strip() == '{':
+                for i in range(inicio, len(conteudo)):
+                    char = conteudo[i]
+                    
+                    if not em_string:
+                        if char == '{':
+                            profundidade += 1
+                        elif char == '}':
+                            profundidade -= 1
+                            if profundidade == 0:
+                                fim = i + 1
+                                break
+                    
+                    if char == '"' and not escape:
+                        em_string = not em_string
+                    
+                    escape = char == '\\' and not escape
+            
+            if fim <= inicio:
+                raise ValueError("Não foi possível encontrar o fim da declaração")
+            
+            # Extrair o JSON
+            js_data = conteudo[inicio:fim]
+            
+            # Converter formato JavaScript para JSON válido
+            # Substituir nomes de propriedades sem aspas
+            import re
+            # Regex para encontrar nomes de propriedades sem aspas
+            js_data = re.sub(r'([{,])\s*([a-zA-Z0-9_$]+)\s*:', r'\1"\2":', js_data)
+            
+            # Substituir aspas simples por aspas duplas
+            js_data = js_data.replace("'", '"')
+            
+            # Remover vírgulas finais em arrays e objetos
+            js_data = re.sub(r',\s*([}\]])', r'\1', js_data)
+            
+            try:
+                import json
+                return json.loads(js_data)
+            except json.JSONDecodeError as e:
+                print(f"Erro ao analisar JSON: {e}")
+                print(f"JSON inválido: {js_data[:100]}...")
+                return {}
+            
     except Exception as e:
         print(f"Erro ao carregar dados de {caminho_arquivo}: {e}")
         return []
@@ -141,8 +194,8 @@ def importar_certificados():
     TagCertificado.objects.all().delete()
     
     # Carregar dados do arquivo JS
-    caminho_js = os.path.join(BASE_DIR, 'js', 'certificates.js')
-    certificados_dados = carregar_json_de_js(caminho_js, 'certificates')
+    caminho_json = os.path.join(BASE_DIR, 'js', 'certificates.json')
+    certificados_dados = carregar_json_direto(caminho_json)
     
     contador = 0
     for cert_dado in certificados_dados:
@@ -185,112 +238,38 @@ def importar_curriculo():
     Idioma.objects.all().delete()
     
     # Carregar dados do arquivo JS
-    caminho_js = os.path.join(BASE_DIR, 'js', 'curriculum.js')
-    dados_curriculo = carregar_json_de_js(caminho_js, 'curriculumData')
-    
-    # Adicionar informações pessoais
-    info_pessoal_dados = dados_curriculo.get('personalInfo', {})
-    if info_pessoal_dados:
-        info_pessoal = InformacaoPessoal(
-            nome=info_pessoal_dados.get('name', ''),
-            titulo=info_pessoal_dados.get('title', ''),
-            email=info_pessoal_dados.get('email', ''),
-            telefone=info_pessoal_dados.get('phone', ''),
-            localizacao=info_pessoal_dados.get('location', ''),
-            linkedin=info_pessoal_dados.get('linkedin', ''),
-            github=info_pessoal_dados.get('github', ''),
-            sobre=info_pessoal_dados.get('about', ''),
-            disponibilidade=info_pessoal_dados.get('availability', '')
-        )
-        info_pessoal.save()
+    caminho_json = os.path.join(BASE_DIR, 'js', 'curriculum.json')
+    dados_curriculo = carregar_json_direto(caminho_json)
+    # Verificar se dados_curriculo é uma lista ou um dicionário
+    if not dados_curriculo:
+        print("Nenhum dado de currículo encontrado.")
+        return
         
-        # Adicionar interesses
-        for nome_interesse in info_pessoal_dados.get('interests', []):
-            Interesse.objects.create(info_pessoal=info_pessoal, nome=nome_interesse)
-        
-        print("Informações pessoais importadas")
+    if isinstance(dados_curriculo, list):
+        print("Os dados do currículo estão em formato de lista, convertendo para dicionário...")
+        # Se for uma lista com um único elemento que é um dicionário, use-o
+        if len(dados_curriculo) == 1 and isinstance(dados_curriculo[0], dict):
+            dados_curriculo = dados_curriculo[0]
+        else:
+            print("Formato de dados inesperado. Criando estrutura padrão.")
+            dados_curriculo = {
+                'personalInfo': {},
+                'experience': [],
+                'education': [],
+                'technicalSkills': [],
+                'softSkills': [],
+                'languages': []
+            }
 
-    # Adicionar experiências
-    contador_exp = 0
-    for i, exp_dado in enumerate(dados_curriculo.get('experience', [])):
-        experiencia = Experiencia(
-            cargo=exp_dado.get('position', ''),
-            empresa=exp_dado.get('company', ''),
-            periodo=exp_dado.get('period', ''),
-            localizacao=exp_dado.get('location', ''),
-            descricao=exp_dado.get('description', ''),
-            ordem=i
-        )
-        experiencia.save()
-        
-        # Adicionar responsabilidades
-        for resp_texto in exp_dado.get('responsibilities', []):
-            ResponsabilidadeExperiencia.objects.create(
-                experiencia=experiencia,
-                descricao=resp_texto
-            )
-        
-        # Adicionar tecnologias
-        for tech_nome in exp_dado.get('technologies', []):
-            TecnologiaExperiencia.objects.create(
-                experiencia=experiencia,
-                nome=tech_nome
-            )
-        
-        contador_exp += 1
-        print(f"Experiência importada: {experiencia.cargo} - {experiencia.empresa}")
-    
-    print(f"Total de experiências importadas: {contador_exp}")
-
-    # Adicionar educação
-    contador_edu = 0
-    for edu_dado in dados_curriculo.get('education', []):
-        educacao = Educacao(
-            grau=edu_dado.get('degree', ''),
-            instituicao=edu_dado.get('institution', ''),
-            periodo=edu_dado.get('period', ''),
-            descricao=edu_dado.get('description', '')
-        )
-        educacao.save()
-        contador_edu += 1
-        print(f"Educação importada: {educacao.grau}")
-    
-    print(f"Total de itens de educação importados: {contador_edu}")
-
-    # Adicionar habilidades técnicas
-    contador_tech = 0
-    for skill_dado in dados_curriculo.get('technicalSkills', []):
-        habilidade = HabilidadeTecnica(
-            nome=skill_dado.get('name', ''),
-            nivel=skill_dado.get('level', 'Básico')
-        )
-        habilidade.save()
-        contador_tech += 1
-        print(f"Habilidade técnica importada: {habilidade.nome}")
-    
-    print(f"Total de habilidades técnicas importadas: {contador_tech}")
-
-    # Adicionar soft skills
-    contador_soft = 0
-    for skill_nome in dados_curriculo.get('softSkills', []):
-        SoftSkill.objects.create(nome=skill_nome)
-        contador_soft += 1
-        print(f"Soft skill importada: {skill_nome}")
-    
-    print(f"Total de soft skills importadas: {contador_soft}")
-
-    # Adicionar idiomas
-    contador_idiomas = 0
-    for idioma_dado in dados_curriculo.get('languages', []):
-        idioma = Idioma(
-            nome=idioma_dado.get('language', ''),
-            proficiencia=idioma_dado.get('proficiency', '')
-        )
-        idioma.save()
-        contador_idiomas += 1
-        print(f"Idioma importado: {idioma.nome}")
-    
-    print(f"Total de idiomas importados: {contador_idiomas}")
+def carregar_json_direto(caminho_arquivo):
+    """Carrega dados diretamente de um arquivo JSON."""
+    try:
+        with open(caminho_arquivo, 'r', encoding='utf-8') as arquivo:
+            import json
+            return json.load(arquivo)
+    except Exception as e:
+        print(f"Erro ao carregar JSON de {caminho_arquivo}: {e}")
+        return []
 
 def executar_importacao():
     """Executa todas as importações."""

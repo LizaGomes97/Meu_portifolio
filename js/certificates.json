@@ -1,0 +1,62 @@
+[
+    {
+        "id": "cert1",
+        "title": "Versionamento de Código com Git e Github",
+        "issuer": "DIO",
+        "date": "Outubro 2024",
+        "description": "Aprendendo a versionar e publicar codigo",
+        "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKw5JRBqrwiDIDd3ZUlG-Q6vqVLBTdOh6w-A&s",
+        "tags": ["Git", "GitHub"],
+        "credentialUrl": "#"
+    },
+    {
+        "id": "cert2",
+        "title": "JavaScript I: Algoritmos De Ordenação",
+        "issuer": "Alura",
+        "date": "Março 2024",
+        "description": "Durante as aulas, aprendi sobre a importância dos algoritmos e como eles estão presentes no nosso dia a dia. Além disso, consegui extrair a lógica dos algoritmos e traduzi-la em código, explorando diferentes formas de resolver o mesmo problema. Agora, também entendo como utilizar algoritmos em conjunto e os conceitos básicos para a análise de complexidade",
+        "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQEZkMsv5FwbDA/company-logo_200_200/company-logo_200_200/0/1710187635900/aluracursos_logo?e=1750291200&v=beta&t=M1lWXsi8_ut6Ye9wRC5iWHp6ORZ8U4cH5AaDCh5ZRnQ",
+        "tags": ["JavaScript", "Algoritmos", "Back-end"],
+        "credentialUrl": "https://cursos.alura.com.br/certificate/162ca1e4-1ab9-48e5-bae9-a19472208a43?lang"
+    },
+    {
+        "id": "cert3",
+        "title": "Algoritmos com JavaScript II",
+        "issuer": "Alura",
+        "date": "Abril 2025",
+        "description": "Aprofundamento em algoritmos avançados com JavaScript, incluindo quickSort e técnicas de otimização.",
+        "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQEZkMsv5FwbDA/company-logo_200_200/company-logo_200_200/0/1710187635900/aluracursos_logo?e=1750291200&v=beta&t=M1lWXsi8_ut6Ye9wRC5iWHp6ORZ8U4cH5AaDCh5ZRnQ",
+        "tags": ["Algoritmos", "Análise de algoritmo", "JavaScript"],
+        "credentialUrl": "#"
+    },
+    {
+        "id": "cert4",
+        "title": "Lógica de programação",
+        "issuer": "Alura",
+        "date": "Abril 2025",
+        "description": "Fundamentos da lógica de programação aplicados em JavaScript com projetos práticos.",
+        "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQEZkMsv5FwbDA/company-logo_200_200/company-logo_200_200/0/1710187635900/aluracursos_logo?e=1750291200&v=beta&t=M1lWXsi8_ut6Ye9wRC5iWHp6ORZ8U4cH5AaDCh5ZRnQ",
+        "tags": ["JavaScript", "Algoritmos", "Análise de algoritmo"],
+        "credentialUrl": "#"
+    },
+    {
+        "id": "cert5",
+        "title": "Lógica de programação (Avançado)",
+        "issuer": "Alura",
+        "date": "Abril 2025",
+        "description": "Aprofundamento em técnicas de lógica de programação com foco em JavaScript e GitHub.",
+        "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQEZkMsv5FwbDA/company-logo_200_200/company-logo_200_200/0/1710187635900/aluracursos_logo?e=1750291200&v=beta&t=M1lWXsi8_ut6Ye9wRC5iWHp6ORZ8U4cH5AaDCh5ZRnQ",
+        "tags": ["JavaScript", "GitHub", "Lógica de Programação"],
+        "credentialUrl": "#"
+    },
+    {
+        "id": "cert6",
+        "title": "Imersão Front-End 2ª Edição",
+        "issuer": "Alura",
+        "date": "Fevereiro 2025",
+        "description": "Desenvolvimento de projeto front-end completo utilizando HTML, CSS, JavaScript e React.js.",
+        "logo": "https://media.licdn.com/dms/image/v2/D4D0BAQEZkMsv5FwbDA/company-logo_200_200/company-logo_200_200/0/1710187635900/aluracursos_logo?e=1750291200&v=beta&t=M1lWXsi8_ut6Ye9wRC5iWHp6ORZ8U4cH5AaDCh5ZRnQ",
+        "tags": ["React.js", "JavaScript", "HTML", "CSS", "Front-end"],
+        "credentialUrl": "#"
+    }
+]
